@@ -16,6 +16,23 @@ const LoginForm = () => {
     return new Promise(resolve => setTimeout(() => resolve(), 3000))
   }
 
+  const validateEmail = value => {
+    if (!value) {
+      return 'You should enter email address'
+    }
+    if (value.length < 4) {
+      return 'E-mail address is shorter than expected'
+    }
+    return true
+  }
+
+  const validatePassword = value => {
+    if (!value) {
+      return 'You should enter password'
+    }
+    return true
+  }
+
   return (
     <form onSubmit={handleSubmit(submitForm)}>
       <Stack spacing={3}>
@@ -23,8 +40,9 @@ const LoginForm = () => {
           <FormLabel>E-mail</FormLabel>
 
           <Input
+            type="email"
             name="email"
-            ref={register}
+            ref={register({ validate: validateEmail })}
             placeholder="test@test.com"
             size="lg"
             disabled={formState.isSubmitting}
@@ -41,7 +59,7 @@ const LoginForm = () => {
           <Input
             name="password"
             type="password"
-            ref={register}
+            ref={register({ validate: validatePassword })}
             placeholder="**********"
             size="lg"
             disabled={formState.isSubmitting}
