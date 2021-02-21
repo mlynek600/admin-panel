@@ -4,6 +4,7 @@ import {
   Input,
   FormErrorMessage,
   Stack,
+  Button,
 } from '@chakra-ui/react'
 import { useForm } from 'react-hook-form'
 
@@ -12,6 +13,7 @@ const LoginForm = () => {
 
   const submitForm = values => {
     console.log('form values: ', values)
+    return new Promise(resolve => setTimeout(() => resolve(), 3000))
   }
 
   return (
@@ -49,6 +51,14 @@ const LoginForm = () => {
             {errors.password && errors.password.message}
           </FormErrorMessage>
         </FormControl>
+
+        <Button
+          type="submit"
+          isLoading={formState.isSubmitting}
+          colorScheme="facebook"
+        >
+          Login
+        </Button>
       </Stack>
     </form>
   )
