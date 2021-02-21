@@ -12,8 +12,9 @@ const LoginForm = () => {
   const { register, errors, handleSubmit, formState } = useForm()
 
   const submitForm = values => {
-    console.log('form values: ', values)
-    return new Promise(resolve => setTimeout(() => resolve(), 3000))
+    return fetch('/login', { method: 'POST' })
+      .then(response => response.json())
+      .then(data => console.log(data))
   }
 
   const validateEmail = value => {
