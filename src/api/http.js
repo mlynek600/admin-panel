@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
   withCredentials: true,
 })
 
-const request = (method, path, data = null, params = null) => {
+const request = (method, path, data = null) => {
   const uri = path
 
   switch (method.toLowerCase()) {
@@ -36,7 +36,7 @@ const login = (path, data) => request('login', path, data)
 const logout = (path, data) => request('logout', path, data)
 const put = (path, data) => request('put', path, data)
 const patch = (path, data) => request('patch', path, data)
-const del = path => request('del', path)
+const del = path => request('delete', path)
 
 const http = {
   get,

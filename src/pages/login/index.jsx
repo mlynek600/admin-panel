@@ -1,5 +1,6 @@
 import React from 'react'
 import { Flex, Stack, Box, Heading } from '@chakra-ui/react'
+
 import LoginForm from '../../components/LoginForm'
 
 const LoginPage = () => (

@@ -5,7 +5,7 @@ const api = {
     return http.login('/login', { email, password })
   },
 
-  users() {
+  getUsers() {
     return http.get('/users')
   },
 
